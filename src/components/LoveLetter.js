@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoveLetter.css"; // Ensure you create a CSS file for styling
+import "./LoveLetter.css";
 
 export const LoveLetter = () => {
   const [isFlapped, setIsFlapped] = useState(false);
@@ -8,6 +8,26 @@ export const LoveLetter = () => {
 
   const toggleFlap = () => {
     setIsFlapped(!isFlapped);
+  };
+
+  const handleClick = async (button) => {
+    try {
+      await fetch("/api/trackClicks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ button }),
+      });
+    } catch (error) {
+      console.error("Error tracking click:", error);
+    }
+
+    if (button === "yes") {
+      navigate("/yes");
+    } else {
+      navigate("/no");
+    }
   };
 
   return (
@@ -30,11 +50,11 @@ export const LoveLetter = () => {
           </div>
           <div className="heart"></div>
         </div>
-        <div className ="buttons">
-          <button className ="btn" id="yesButton" onClick={() => navigate("/yes")}>
+        <div className="buttons">
+          <button className="btn" id="yesButton" onClick={() => handleClick("yes")}>
             Cóa
           </button>
-          <button className ="btn" id="noButton" onClick={() => navigate("/no")}>
+          <button className="btn" id="noButton" onClick={() => handleClick("no")}>
             Hum
           </button>
         </div>
