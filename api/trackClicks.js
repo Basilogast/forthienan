@@ -1,11 +1,13 @@
-import admin from "firebase-admin";
-import { initializeApp, getApps } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+// /api/trackClicks.js
 
-// Initialize Firebase Admin SDK
+import admin from "firebase-admin";
+import { getFirestore } from "firebase-admin/firestore";
+import { getApps, initializeApp } from "firebase-admin/app";
+
+// Prevent reinitializing admin SDK
 if (!getApps().length) {
   initializeApp({
-    credential: admin.credential.cert(require("../firebase-service-account.json")),
+    credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)),
   });
 }
 
@@ -21,17 +23,19 @@ export default async function handler(req, res) {
       const doc = await docRef.get();
 
       if (!doc.exists) {
-        // Initialize counts if the document doesn't exist
         await docRef.set({ yes: 0, no: 0 });
       }
 
-      // Increment the appropriate count
-      const updateField = button === "yes" ? { yes: admin.firestore.FieldValue.increment(1) } : { no: admin.firestore.FieldValue.increment(1) };
-      await docRef.update(updateField);
+      const update =
+        button === "yes"
+          ? { yes: admin.firestore.FieldValue.increment(1) }
+          : { no: admin.firestore.FieldValue.increment(1) };
+
+      await docRef.update(update);
 
       return res.status(200).json({ message: "Click tracked successfully" });
     } catch (error) {
-      console.error("Error updating counts:", error);
+      console.error(error);
       return res.status(500).json({ message: "Internal server error" });
     }
   }
@@ -39,15 +43,10 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       const doc = await clicksCollection.doc("counts").get();
-
-      if (!doc.exists) {
-        return res.status(200).json({ yes: 0, no: 0 });
-      }
-
-      const data = doc.data();
+      const data = doc.exists ? doc.data() : { yes: 0, no: 0 };
       return res.status(200).json(data);
     } catch (error) {
-      console.error("Error retrieving counts:", error);
+      console.error(error);
       return res.status(500).json({ message: "Internal server error" });
     }
   }
