@@ -129,13 +129,16 @@ main{
 }
   main img{
       position: absolute;
-      width: 120vw;
-      height: 120vh;
-      top: -10%;
-      left: -10%;
+      width: 130vw;
+      height: 130vh;
+      top: -25%;
+      left: -17%;
       /* for purpose responsive */
       object-fit: cover;  
-
+  }
+  main img.fix {
+    width: 140vw;
+    height: 140vh;
   }
       .background{
           width: 150vw;
@@ -152,12 +155,12 @@ main{
         bottom: 0;
         z-index: 10;
     } 
-  .smoke{
+  /* .smoke{
       opacity: .5;
-  }
+  } */
 /************ Navbar Css ************/
 nav.navbar {
-  padding: 18px 0;
+  padding: 2vh 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -307,7 +310,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 80px;
   height: 0;
   position: relative;
@@ -317,7 +320,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(191, 44, 217, 0.5) -5.91%, rgba(32, 141, 156, 0.5) 111.58%);
+  background: linear-gradient(0deg, rgba(242, 165, 13, 0.5) -5.91%, rgba(145, 24, 231, 0.5) 111.58%);
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   margin-bottom: 16px;
@@ -413,7 +416,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 40%;
   z-index: -4;
 }
-
+/************ Particle Css ************/
+.particlesBG{
+  position: relative;
+  height: 500px;
+}
 /************ Projects Css ************/
 .project {
   padding: 80px 0;

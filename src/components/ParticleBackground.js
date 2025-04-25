@@ -2,12 +2,12 @@ import Particles from "react-tsparticles";
 import particleConfig from "./config/particle-config";
 import React from "react";
 
-const ParticleBackground = () => {
+export const ParticleBackground = () => {
     return(
-        <Particles params={particleConfig}>
+        <div class="particlesBG">
+            <Particles params={particleConfig}>
 
-        </Particles>
+            </Particles>
+        </div>
     )
 }
-
-export default ParticleBackground

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/HungLogo.svg';
+import logo from '../assets/img/anLogo.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
@@ -33,7 +33,7 @@ export const NavBar = () => {
   }
 
   return (
-    <Router>
+    // <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
@@ -50,9 +50,9 @@ export const NavBar = () => {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="https://www.linkedin.com/in/hungcaoduy/"><img src={navIcon1} alt="" /></a>
-                <a href="https://www.facebook.com/caoduyhung.nguyen/"><img src={navIcon2} alt="" /></a>
-                <a href="https://github.com/Basilogast"><img src={navIcon3} alt="" /></a>
+                <a href="https://www.linkedin.com/in/thi%C3%AAn-%C3%A2n-nguy%E1%BB%85n-%C4%91%E1%BB%97-8b0380212/"><img src={navIcon1} alt="" /></a>
+                <a href="https://www.facebook.com/profile.php?id=100013758813611/"><img src={navIcon2} alt="" /></a>
+                <a href="https://www.instagram.com/annguyen20112003/"><img src={navIcon3} alt="" /></a>
               </div>
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>
@@ -61,6 +61,6 @@ export const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </Router>
+    // </Router>
   )
 }

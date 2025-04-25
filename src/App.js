@@ -1,27 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-import { Parallax } from './components/Parallax';
-import { ParticleBackground } from './components/ParticleBackground';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Parallax } from "./components/Parallax";
+import { LoveLetter } from "./components/LoveLetter";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { YesPage } from "./components/YesPage";
+import { NoPage } from "./components/NoPage";
 
 function App() {
   return (
-    <div className="App">
-      <Parallax/>
-      <NavBar />
-      <Banner />
-      <Skills />
-      <ParticleBackground/>
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Parallax />
+                <LoveLetter />
+              </>
+            }
+          />
+          <Route path="/yes" element={<YesPage />} />
+          <Route path="/no" element={<NoPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

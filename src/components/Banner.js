@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+import headerImg from "../assets/img/header-img.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+  const toRotate = [ "an Accountant", "a Marketer", "a Project Manager" ];
   const period = 2000;
 
   useEffect(() => {
@@ -50,15 +50,15 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="d-flex aligh-items-center bg-secondary bg-opacity-50 px-5 pt-5">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className="textContainer">
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`I'm Hung, a `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                    <p>I am a Year 2 Computer Science student at Queen's University Belfast, who has passion in creating engaging and aspiring web application.</p>
+                  <h1>{`I'm An,  `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "an Accountant", "a Marketer", "a Project Manager" ]'><span className="wrap">{text}</span></span></h1>
+                    <p>I am an graduate from University of Economics HCMC, who has passion in accounting and managin projects.</p>
                     <button onClick={() => console.log('connect')}>More about me <ArrowRightCircle size={25} /></button>
                 </div>
               </div>
