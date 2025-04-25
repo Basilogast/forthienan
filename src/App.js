@@ -8,6 +8,7 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Parallax } from './components/Parallax';
+import { ParticleBackground } from './components/ParticleBackground';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Banner />
       <Skills />
+      <ParticleBackground/>
       <Projects />
       <Contact />
       <Footer />

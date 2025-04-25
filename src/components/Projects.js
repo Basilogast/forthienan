@@ -9,9 +9,9 @@ import drum from "../assets/img/drum.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useCallback } from "react";
 
 export const Projects = () => {
-
   const projects = [
     {
       title: "Simple Piano Project",
@@ -51,8 +51,10 @@ export const Projects = () => {
     },
   ];
 
+
+
   return (
-    <section className="project" id="projects">
+    <section className="project particles-js" id="projects">
       <Container>
         <Row>
           <Col size={12}>
