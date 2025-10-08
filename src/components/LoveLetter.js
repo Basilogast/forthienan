@@ -64,8 +64,8 @@ export const LoveLetter = () => {
               <div className="text">
                 <strong>Gửi pạn Thiên Ân,</strong>
                 <p>
-                  Để phần ngại ngùng tớ lo cho, cậu chỉ cần cho tớ trở thành 1 phần trong
-                  tương lai của cậu là được rùi:3, nhaa?
+                  Bây giờ chữ làm bạn cảm giác nó làm mình bớt thân hơn ấy,
+                  Ân cho phép Hùng chăm sóc Ân tới cuối đời nhaaa ??? iu ạ
                 </p>
               </div>
             </div>
